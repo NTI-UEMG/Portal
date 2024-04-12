@@ -1,0 +1,57 @@
+= SPEC-001: Portal de Serviços UEMG Ituiutaba
+:sectnums:
+:toc:
+
+== Background
+
+O projeto do portal de serviços para a UEMG - unidade Ituiutaba visa desenvolver uma plataforma web centralizada que oferece diversos serviços para alunos, professores, coordenadores de curso, secretários, analistas de TI, diretores e administradores. A necessidade de um sistema integrado surgiu para melhorar a gestão de atividades complementares, eventos, e outras funcionalidades administrativas e acadêmicas, promovendo uma interação mais eficiente entre todos os envolvidos.
+
+== Requisitos
+
+Os requisitos funcionais e não funcionais foram definidos com base nas necessidades dos usuários finais e nas melhores práticas de desenvolvimento de software, incluindo segurança, desempenho, usabilidade e manutenção.
+
+== Method
+
+A arquitetura do portal de serviços da UEMG Ituiutaba será desenvolvida utilizando o Django Framework, escolhido pela sua robustez, escalabilidade e facilidade de manutenção. O MySQL será utilizado como sistema de gerenciamento de banco de dados devido à sua confiabilidade e performance. A aplicação será hospedada sob o domínio uemgituiutaba.com.br, garantindo fácil acesso e identificação pelo público-alvo.
+
+=== Arquitetura Geral
+
+A arquitetura do sistema será baseada em uma aplicação Django monolítica com vários apps, cada um responsável por uma funcionalidade específica (Cadastro de Usuários, Controle de Atividades Complementares, Gestão de Eventos, etc.). O sistema adotará uma arquitetura de três camadas: Apresentação, Lógica de Negócios e Acesso a Dados.
+
+==== Camada de Apresentação
+
+Incluirá templates HTML responsivos que serão renderizados pelo Django. A interface será desenhada para ser acessível e amigável em diferentes dispositivos.
+
+==== Camada de Lógica de Negócios
+
+Implementada nos views e models do Django, contendo a lógica para processar as requisições dos usuários, gerenciar fluxos de trabalho, e as regras de negócio.
+
+==== Camada de Acesso a Dados
+
+Gerenciada pelo ORM (Object-Relational Mapping) do Django, facilitando a interação com o banco de dados MySQL sem a necessidade de escrever consultas SQL complexas.
+
+=== Segurança
+
+O sistema implementará autenticação baseada em e-mail e senha, com verificação de e-mail para novos registros. HTTPS será usado para todas as comunicações. O armazenamento de senhas será feito de forma segura usando hash e salt.
+
+=== Controle de Versão
+
+O projeto utilizará Git para controle de versão, hospedado no GitHub. A metodologia Git Flow será adotada para gerenciar o desenvolvimento, testes, e lançamentos.
+
+== Implementation
+
+A implementação seguirá as etapas de desenvolvimento ágil, iniciando pela configuração do ambiente de desenvolvimento, definição de modelos de dados, implementação das funcionalidades conforme os requisitos funcionais, testes unitários e de integração, até o deployment no servidor de produção.
+
+== Milestones
+
+1. Configuração do Ambiente de Desenvolvimento
+2. Implementação do Sistema de Cadastro e Autenticação
+3. Desenvolvimento do App de Controle de Atividades Complementares
+4. Implementação do App de Gestão de Eventos
+5. Testes e Validação
+6. Deployment
+
+== Gathering Results
+
+A eficácia do portal será avaliada com base no feedback dos usuários e na análise de métricas de uso, como número de registros, atividades complementares gerenciadas, e participação em eventos.
+

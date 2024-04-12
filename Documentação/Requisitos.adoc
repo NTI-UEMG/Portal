@@ -1,0 +1,56 @@
+= Requisitos do Portal de Serviços UEMG Ituiutaba
+:toc:
+:sectnums:
+
+== Introdução
+
+Este documento detalha os requisitos funcionais e não funcionais para o desenvolvimento do portal de serviços para a unidade Ituiutaba da Universidade do Estado de Minas Gerais (UEMG). O objetivo deste documento é fornecer uma visão clara das expectativas e necessidades que o sistema deve atender, servindo como um guia para o desenvolvimento e a avaliação do projeto.
+
+== Requisitos Funcionais
+
+.Requisitos Funcionais
+[options="header"]
+|===
+| ID | Descrição
+| RF-01 | Permitir que usuários se cadastrem no sistema usando um e-mail institucional (@uemg.br).
+| RF-02 | Enviar um e-mail de verificação para o e-mail institucional fornecido durante o cadastro.
+| RF-03 | Exigir que o usuário verifique o e-mail clicando em um link de validação contido no e-mail de verificação.
+| RF-04 | Permitir que usuários escolham seu perfil durante o cadastro (aluno, professor, coordenador, diretor, secretário).
+| RF-05 | Exigir que alunos, professores e coordenadores selecionem seu curso durante o cadastro.
+| RF-06 | Permitir que administradores aprovem ou rejeitem perfis de usuário, exceto alunos, após o cadastro.
+| RF-07 | Permitir que alunos submetam fotos de certificados de atividades complementares.
+| RF-08 | Notificar os coordenadores sobre submissões de certificados de atividades complementares para aprovação.
+| RF-09 | Permitir que coordenadores aprovem ou rejeitem certificados de atividades complementares submetidos.
+| RF-10 | Contabilizar automaticamente as horas das atividades complementares aprovadas para o aluno.
+| RF-11 | Permitir o cadastro e gestão de eventos (cursos de extensão, palestras, entre outros) por usuários autorizados.
+| RF-12 | Permitir que alunos se inscrevam em eventos.
+| RF-13 | Gerar certificados de participação para alunos que participarem de eventos.
+| RF-14 | Integrar os certificados de participação de eventos na contagem de horas de atividades complementares.
+| RF-15 | Controlar a presença dos participantes de eventos através de um sistema de QRCode.
+| RF-16 | Gerar crachás com QRCode para participantes de eventos para verificação de presença.
+| RF-17 | Permitir o acesso a funcionalidades específicas do sistema baseado no perfil do usuário.
+| RF-18 | Garantir que o sistema seja gerenciável através das ferramentas do Django Admin para administradores.
+|===
+
+== Requisitos Não Funcionais
+
+.Requisitos Não Funcionais
+[options="header"]
+|===
+| ID | Descrição
+| RNF-01 | O sistema deve ser desenvolvido usando o framework Django.
+| RNF-02 | Utilizar MySQL como sistema de gerenciamento de banco de dados.
+| RNF-03 | O portal deve ser hospedado no domínio uemgituiutaba.com.br.
+| RNF-04 | Utilizar Git/GitHub para controle de versão e colaboração entre desenvolvedores.
+| RNF-05 | Adotar a metodologia Git Flow para o controle de versão.
+| RNF-06 | Implementar práticas de segurança para a proteção dos dados dos usuários.
+| RNF-07 | O sistema deve enviar e-mails de forma confiável para validação de contas e notificações.
+| RNF-08 | Ser capaz de escalar para suportar um número crescente de usuários e carga de trabalho.
+| RNF-09 | Interface do usuário responsiva e acessível em diferentes dispositivos.
+| RNF-10 | Implementar logs de auditoria detalhados para ações críticas.
+| RNF-11 | Desenvolver com uma arquitetura que facilite a manutenção e atualização do código.
+| RNF-12 | O tempo de resposta das funcionalidades críticas não deve exceder 2 segundos.
+| RNF-13 | Garantir a acessibilidade para usuários com deficiências, seguindo as diretrizes WCAG.
+| RNF-14 | Fornecer documentação técnica detalhada do sistema.
+|===
+

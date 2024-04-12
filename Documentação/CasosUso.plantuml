@@ -1,0 +1,38 @@
+@startuml Portal de Serviços UEMG Ituiutaba
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Aluno" as student
+actor "Professor/Coordenador" as professor
+actor "Diretor/Secretário" as director
+actor "Administrador" as admin
+
+rectangle "Portal de Serviços UEMG Ituiutaba" {
+  (Cadastro de Usuários\ncom Verificação de E-mail) as (Reg)
+  (Submissão de Atividades Complementares) as (SubAct)
+  (Aprovação de Atividades Complementares) as (ApprAct)
+  (Cadastro e Gestão de Eventos) as (ManageEvents)
+  (Inscrição em Eventos) as (JoinEvents)
+  (Geração de Certificados) as (GenCerts)
+  (Controle de Presença\ncom QRCode) as (CheckIn)
+  (Geração de Crachás\ncom QRCode) as (GenBadge)
+  (Aprovação de Perfil) as (ApprProfile)
+  
+  student --> (Reg)
+  student --> (SubAct)
+  student --> (JoinEvents)
+  professor --> (ApprAct)
+  professor --> (ManageEvents)
+  director --> (ManageEvents)
+  admin --> (Reg)
+  admin --> (ManageEvents)
+  admin --> (ApprProfile)
+  
+  (Reg) .> (ApprProfile) : "Exceto alunos\nrequer aprovação"
+  (JoinEvents) .> (GenCerts) : "Gera após\nparticipação"
+  (JoinEvents) .> (GenBadge) : "Gera Crachá com QRCode"
+  (CheckIn) .> (GenCerts) : "Após verificar presença"
+  (SubAct) .> (ApprAct) : "Requer\naprovação"
+}
+
+@enduml

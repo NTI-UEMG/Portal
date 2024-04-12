@@ -1,0 +1,69 @@
+/* static/css/estilo.css */
+.navbar-custom {
+    background-color: rgb(56, 94, 117) !important;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: white !important;
+}
+
+.navbar-brand-custom {
+    background-color: red !important; /* Define a cor de fundo para vermelho */
+    color: white !important; /* Define a cor da letra para branco */
+    padding: 5px 10px; /* Adiciona um pouco de padding para visualização melhor */
+}
+
+.navbar-brand-logo {
+    background-color: white; /* Define o fundo como branco */
+    color: #000 !important; /* Define a cor do texto para preto ou outra cor de sua preferência */
+    padding: 5px 10px; /* Ajuste o padding conforme necessário */
+}
+
+.carousel-item .container {
+    padding: 20px;
+    border: 2px solid #dee2e6; /* Cor da borda - cinza claro do Bootstrap */
+    background-color: #fff; /* Fundo branco para garantir contraste */
+    margin-bottom: 20px; /* Espaçamento abaixo de cada slide */
+}
+
+.carousel-item img {
+    height: auto; /* Mantém a proporção da imagem */
+    max-height: 65vh; /* Limita a altura da imagem a 65% da altura da viewport */
+}
+
+/* Estilos para os controles do carousel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #000; /* Cor de fundo preta para os ícones */
+}
+
+/* Estilos para os indicadores do carousel */
+.carousel-indicators li {
+  background-color: #000; /* Cor de fundo preta para os indicadores */
+}
+
+/* Aumentar a visibilidade dos ícones ao passar o mouse */
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+  background-color: #555; /* Cor de fundo mais escura ao passar o mouse */
+}
+
+
+.welcome-text {
+    text-align: center;
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+}
+
+.logout-button, .logout-button:link, .logout-button:visited, .logout-button:hover, .logout-button:active {
+    color: white !important; /* Força a cor do texto para branco em todos os estados */
+    background-color: transparent !important; /* Mantém o fundo transparente */
+    border: none !important; /* Remove a borda do botão */
+    text-decoration: none !important; /* Remove a sublinhado do link */
+}
+
+.footer-custom {
+    text-align: center; /* Alinha o texto ao centro */
+    width: 100%; /* Garante que o rodapé ocupe a largura total */
+    padding: 10px 0; /* Adiciona um pouco de padding vertical para visualização melhor */
+}

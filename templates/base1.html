@@ -1,0 +1,144 @@
+{% load static %}
+
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal UEMG - Unidade Ituiutaba</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+    <!-- Barra de Navegação -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img class="navbar-brand-logo" src="{% static 'images/LOGO-UEMG-NAVBAR.png' %}" alt="Logo UEMG" height="50"> <!-- Ajuste a altura conforme necessário -->
+            </a>        
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                                Dropdown link
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">ID Digital</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Atividades Complementares</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Horários</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Eventos</a>
+                        </li>
+                    {% endif %}                
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'perfil' %}">Olá, {{ user.nickname }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="logout-button btn btn-link">Sair  <span class="fas fa-person-walking-luggage"></span></button>
+                            </form>                        
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Entrar <span class="fas fa-user"></span></a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <br/>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-warning" role="alert">
+                    {{ message }}
+                </div>                              
+            {% endfor %}
+        {% endif %}
+
+        <!-- Seção de Destaques -->
+        <div id="cursosCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {% for curso in cursos %}
+                    <li data-target="#cursosCarousel" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+                {% endfor %}
+            </ol>
+            <div class="carousel-inner">
+                {% for curso in cursos %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}" data-interval="5000">
+                <div class="container">
+                    <div class="row justify-content-center">
+                    <div class="col-md-5"> <!-- Ajusta para ocupar dois terços da tela -->
+                        <img src="{{ curso.imagem.url }}" class="d-block w-100" alt="{{ curso.nome }}">
+                        <!-- <p>Caminho da imagem: {{ curso.imagem.url }}</p>                           -->
+                    </div>
+                    </div>
+                    <div class="row justify-content-center">
+                    <div class="col-md-8 text-center p-3 "> <!-- Descrição com borda e padding -->
+                        <h5>{{ curso.nome }}</h5>
+                        <p>{{ curso.descricao }}</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- Controles do Carousel -->
+            <a class="carousel-control-prev" href="#cursosCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#cursosCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Próximo</span>
+            </a>                
+        </div>
+                        
+        <!-- Seção de Notícias/Eventos em Cards -->
+        <div class="container mt-4">
+            <div class="row">
+                <!-- Cards de Notícias/Eventos -->
+            </div>
+        </div>     
+
+        <!-- Bloco de conteúdo -->
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="footer mt-auto py-3 bg-light footer-custom">        
+        <div class="container">
+            <p class="mb-1">Desenvolvido pelo NTI - Ituiutaba (Núcleo de Tecnologia da Informação) - Departamento de Engenharias e Sistemas © Copyright 2024</p>
+        </div>
+    </footer>
+        
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/js/all.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
